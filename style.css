@@ -1,0 +1,498 @@
+/*Welcome to the CSS Page. Need a website? Contact dtdigitals.com today!*/
+
+/* Fonts */
+@font-face {
+    font-family: 'Bodoni Moda';
+    src: url('./fonts/BodoniModa-VariableFont_opsz,wght.ttf') format('truetype');
+    font-weight: 400 900; 
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Bodoni Moda';
+    src: url('./fonts/BodoniModa-Italic-VariableFont_opsz,wght.ttf') format('truetype');
+    font-weight: 400 900; 
+}
+
+@font-face {
+    font-family: 'Williwaw';
+    src: url('./fonts/Williwaw-Book.ttf') format('truetype');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DM Sans';
+    src: url('./fonts/DMSans-VariableFont_opsz,wght.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 100 900;
+}
+
+/*Variables and Root*/
+
+:root {
+    --ff-body: "Williwaw", sans-serif;
+    --clr-primary: #feffe9;
+    --clr-light-accent: #fffdc1;
+    --clr-dark-accent: hsl(63.93, 31.28%, 61.76%);
+
+
+    --fs-xl: clamp(2rem, 2.5vw + 1rem, 6rem);
+    --fs-600: 2rem;
+    --fs-400: 1.5rem;
+}
+
+@media (min-width: 40em) {
+:root {
+  --fs-600: 3rem;
+  --fs-400: 1.6rem;
+}
+}
+
+body,
+h2,
+h3,
+p,
+blockquote {
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+}
+
+h1 {
+    margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+h4, p {
+    line-height: 1.1;
+}
+
+
+body {
+    background-color: var(--clr-primary);
+    font-family:var(--ff-body);
+    margin: 0;
+    }
+
+/* Disable scrolling on Drop Down Menu*/
+body.no-scroll {
+    overflow: hidden;
+    height: 100vh;
+}
+
+h1 {
+    font-size: var(--fs-xl);
+}
+h2 {
+    font-size: var(--fs-xl);
+}
+
+h3 {
+    font-size: var(--fs-600);
+}
+h4, p {
+    font-size: var(--fs-400);
+}
+
+
+/* Header */
+
+header {
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+header.active {
+    background-color: var(--clr-light-accent);
+}
+
+.site-title {
+    text-align: center;
+}
+
+
+#icons-mobile {
+    padding-left: 45px;
+    display: inline-flex;
+    gap: 15px;
+}
+
+.social-media-header-icons {
+    padding-bottom: 20px;
+    padding-left: 35px;
+    display: inline-flex;
+    gap: 15px;
+}
+
+
+
+.desktop-nav-bar {
+    text-align: center;
+    font-size: var(--fs-400);
+    display: inline-flex;
+    gap: 30px;
+    margin: 0 auto;
+    
+}
+
+@media (max-width: 775px) {
+    .social-media-header-icons,
+    .desktop-nav-bar
+    {
+        display: none;
+    }
+}
+
+
+/* Moble Hamburger Menu*/
+
+.menu-container {
+    display: none;
+    position: absolute;
+    left: 30px;
+    top: 35px;
+    padding: 10px;
+    width: 10px;
+    cursor: pointer;
+    z-index: 100;
+
+  }
+
+@media (max-width: 775px) {
+    .menu-container {
+        display: inline-block;
+    }
+}
+
+  
+  #menu-bar1, #menu-bar2 {
+    width: 100%;
+    height: 2px;
+    background: black;
+    transition: 0.3s ease-in-out;
+    position: absolute;
+    left: 0;
+  }
+  
+  #menu-bar1 {
+    top: 0;
+  }
+  
+  .change #menu-bar1 {
+    transform: translateX(0px) rotate(-225deg) translate(0px, -7px);
+
+  }
+  
+  .change #menu-bar2 {
+    transform: translateX(0px) rotate(225deg) translate(0px, 7px);
+
+  }
+
+  .site-title.shift {
+    transform: translateX(0px); /* Adjust this value to match the shift you notice */
+    
+}
+  
+/*Full Screen Drop Down Menu Mobile*/
+
+.full-screen-menu {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--clr-light-accent);
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(50px);
+    pointer-events: none;
+    transition: opacity 0.3s, transform 0.3s ease;
+    z-index: 5;
+    font-family: "DM Sans";
+    font-weight: 200;
+    line-height: 1.2;
+    letter-spacing: .15rem;
+}
+
+.full-screen-menu ul {
+
+    list-style: none;
+    padding-left: 40px;
+    padding-bottom: 50%;
+    margin: 0;
+    text-align: left;
+}
+
+.full-screen-menu li {
+    margin: 0px 0;
+}
+
+.full-screen-menu a, .full-screen-menu p {
+    text-decoration: none;
+    color: black;
+    font-size: 2.5rem;
+    transition: color 0.3s ease;
+}
+
+
+.full-screen-menu.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+}
+
+.flex-container {
+    display: flex;
+    gap: 1em;
+  }
+
+  .arrow {
+    position: relative;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-top: 1px solid currentColor;
+    border-right: 1px solid currentColor;
+    vertical-align: middle;
+    margin-top: 1.1em;
+    transform: rotate(45deg);
+    cursor: pointer;
+    transition: .2s
+  }
+
+  .menu-arrow-down {
+    transform: rotate(135deg);
+    transition: .2s;
+  }
+
+  .My-Work-Menu {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility 0.3s ease, opacity 0.3s ease;
+    padding-left: 2.5rem;
+    
+}
+
+.My-Work-Menu.active {
+    max-height: 500px;
+    opacity: 1;
+    visibility: visible;
+    
+}
+
+.My-Work-Menu p {
+    font-size: 1.5rem;
+}
+
+.social-media-header-icons.mobile {
+    position: fixed;
+    bottom: 15vh;
+}
+
+.my-work-p {
+    cursor: pointer;
+}
+
+@media (min-width: 775px) {
+    .full-screen-menu {
+        display: none;
+    }
+
+    header {
+        background-color: var(--clr-primary); /* Reset header background */
+    }
+
+    body.no-scroll {
+        overflow: visible; /* Re-enable scrolling */
+    }
+}
+  
+
+/* Home Content */
+.grid-container {
+
+    border-top: 1px solid;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 6%;
+    gap: 8%;
+    justify-content: center;
+    align-items:center;
+
+}
+
+.smaller-grid {
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+.grid-item {
+    text-align: center;
+    
+}
+
+
+
+#ChelseaGreenDressMobile {
+    display: none;
+}
+
+
+#Home-Accent-Content {
+    
+    background-color: var(--clr-light-accent);
+}
+
+#TheatreBox {
+    text-align: left;
+    h3 {
+    text-wrap: balance;
+    }
+}
+
+#Home-Accent-Content-Testimonial {
+    background-color: var(--clr-light-accent);
+}
+
+#Testimonial-Box {
+
+   text-align: left;
+   align-self: start;
+}
+
+@media (max-width: 775px) {
+    .grid-container, .smaller-grid {
+        grid-template-columns: 1fr;
+        padding: 4%;
+        gap: 0;
+        
+    }
+    .grid-item {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+
+    }
+
+    #TheatreBox, #Testimonial-Box {
+        text-align: center;
+    }
+
+    #ChelseaGreenDressMobile {
+        display: inline-block;
+    }
+
+    #ChelseaGreenDressGrid {
+        display: none;
+    }
+
+}
+
+#Past-Work {
+    text-align: center;
+    border-top: 1px solid;
+    padding-top: 6%;
+    background-color: var(--clr-dark-accent);
+}
+
+#grid4 {
+    grid-template-columns: repeat(4, 1fr);
+    border: none;
+    background-color: var(--clr-dark-accent);
+    align-items: start;
+}
+
+#grid4 a {
+    color: var(--clr-light-accent);
+    text-decoration: underline;
+}
+
+.footer {
+    
+    border-top: 1px solid;
+    padding: 6%;
+    text-align: center;
+    background-color: var(--clr-light-accent);
+}
+
+/* Site Styles */
+.icon {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.fade-in {
+    opacity: 0;
+    transition: opacity 2s ease;
+  }
+  
+.fade-in.visible {
+    opacity: 1;
+  }
+
+  #ChelseaGreenDress {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 45px;
+}
+
+#ChelseaGreenDressMobile {
+    width: 85%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 45px;
+    margin-bottom: 40px;
+}
+
+
+@media (max-width: 1200px) and (min-width: 876px) {
+    #ChelseaGreenDress {
+        aspect-ratio: 4 / 5;
+    }
+}
+
+@media (max-width: 875px) and (min-width: 776px) {
+    #ChelseaGreenDress {
+        aspect-ratio: 3.5 / 5.5;
+    }
+}
+
+  #Thesis, #Imagination, #Community, #ThesisMobile {
+    object-fit: cover;
+    width: 100%;
+  }
+
+  #Community {
+    padding-bottom: 5rem;
+  }
+
+  #ThesisMobile {
+    display: none;
+  }
+  
+  @media (max-width: 775px) {
+    #Thesis {
+        display:none;
+    }
+
+    #ThesisMobile {
+        display: block;
+    }
+  }
+  
