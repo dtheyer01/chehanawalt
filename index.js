@@ -36,6 +36,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const header = document.querySelector('header');
   const body = document.body;
   const siteTitle = document.querySelector('.site-title');
+  const myWorkMobileMenu = document.querySelector('.My-Work-Menu');
+  const arrow = document.querySelector('.arrow')
 
   hamburgerMenu.addEventListener('click', function () {
       fullScreenMenu.classList.toggle('active');
@@ -57,10 +59,12 @@ document.addEventListener('DOMContentLoaded', function () {
  window.addEventListener('resize', function () {
   if (window.innerWidth > 775) {
       fullScreenMenu.classList.remove('active');
+      myWorkMobileMenu.classList.remove('active');
       header.classList.remove('active');
       body.classList.remove('no-scroll');
       siteTitle.classList.remove('shift');  
-      hamburgerMenu.classList.remove('change')
+      hamburgerMenu.classList.remove('change');
+      arrow.classList.remove('menu-arrow-down');
   }
 });
 });

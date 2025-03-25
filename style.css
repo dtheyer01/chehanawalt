@@ -36,17 +36,24 @@
     --clr-dark-accent: hsl(63.93, 31.28%, 61.76%);
 
 
-    --fs-xl: clamp(2rem, 2.5vw + 1rem, 6rem);
+    --fs-xl: clamp(2rem, 2.5vw + 1rem, 4rem);
     --fs-600: 2rem;
-    --fs-400: 1.5rem;
+    --fs-400: 1.3rem;
 }
 
 @media (min-width: 40em) {
 :root {
   --fs-600: 3rem;
-  --fs-400: 1.6rem;
+  --fs-400: 1.5rem;
 }
 }
+
+@media (min-width: 60em) {
+    :root {
+
+      --fs-400: 1.6rem;
+    }
+    }
 
 body,
 h2,
@@ -74,6 +81,9 @@ body {
     font-family:var(--ff-body);
     margin: 0;
     }
+button {
+    font-family:var(--ff-body);
+}
 
 /* Disable scrolling on Drop Down Menu*/
 body.no-scroll {
@@ -127,6 +137,15 @@ header.active {
     gap: 15px;
 }
 
+.cv {
+    font-size: 27px;
+    margin-top: -1px;
+}
+
+.cv-mobile {
+    font-size: 20px;
+    margin-top: -2px;
+}
 
 
 .desktop-nav-bar {
@@ -146,6 +165,37 @@ header.active {
     }
 }
 
+.work-dropdown-desktop {
+    position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.work-dropdown-desktop-content {
+    opacity: 0;
+  position: absolute;
+  background-color: #f9f9f9;
+  width: max-content;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  outline: 1px solid;
+  padding: 12px 16px 8px 16px;
+  z-index: 1;
+  left: 50%; 
+  transform: translateY(-10px) translateX(-50%);
+  visibility: hidden;
+  background-color: var(--clr-primary);
+}
+
+.work-dropdown-desktop:hover .work-dropdown-desktop-content {
+    opacity: 1;
+    transform: translateY(0px) translateX(-50%);
+    visibility: visible;
+    transition: opacity 150ms ease-in-out, transform 250ms ease-in-out;
+}
+
+.work-dropdown-desktop-content p {
+    margin-top: 4px;
+}
 
 /* Moble Hamburger Menu*/
 
@@ -233,7 +283,7 @@ header.active {
     margin: 0px 0;
 }
 
-.full-screen-menu a, .full-screen-menu p {
+.full-screen-menu p {
     text-decoration: none;
     color: black;
     font-size: 2.5rem;
@@ -272,19 +322,18 @@ header.active {
   }
 
   .My-Work-Menu {
-    max-height: 0;
     overflow: hidden;
     opacity: 0;
-    visibility: hidden;
-    transition: visibility 0.3s ease, opacity 0.3s ease;
+    transition: opacity 150ms ease-in-out, transform 250ms ease-in-out;
     padding-left: 2.5rem;
+    transform: translateY(-10px);
     
 }
 
 .My-Work-Menu.active {
-    max-height: 500px;
     opacity: 1;
-    visibility: visible;
+    transform: translateY(0px);
+    transition: opacity 150ms ease-in-out, transform 250ms ease-in-out;
     
 }
 
@@ -345,10 +394,15 @@ header.active {
     display: none;
 }
 
-
 #Home-Accent-Content {
     
     background-color: var(--clr-light-accent);
+}
+
+
+#About-Accent-Content {
+    
+    background-color: var(--clr-primary);
 }
 
 #TheatreBox {
@@ -417,12 +471,221 @@ header.active {
 .footer {
     
     border-top: 1px solid;
-    padding: 6%;
+    padding: 6% 0 10px;
     text-align: center;
     background-color: var(--clr-light-accent);
 }
 
+
+/* About Content */
+
+#about-select {
+    text-decoration: underline;
+}
+
+#About-Accent-Content {
+    align-items: start;
+}
+
+#About-Text {
+    text-align: left;
+}
+
+
+
+@media(max-width: 775px) {
+    #About-Text{
+    text-align: center;
+}
+
+.spacer {
+    display: none;
+}
+
+#ChelseaAboutPic1 {
+    display: none;
+}
+
+}
+
+#ChelseaAboutPic {
+    max-width: 100%;
+    height: auto;
+}
+
+#ChelseaAboutPic1 {
+
+    max-width: 100%;
+    height: auto;
+}
+
+#Contactimg {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+
+}
+
+@media (min-width: 1650px) {
+    #ChelseaAboutPic1 {
+        margin-top: -75px;
+    }
+    #ChelseaAboutPic {
+        width: 100%;
+        height: 650px; /* Scales height */
+    object-fit: cover; /* Ensures cropping instead of stretching */
+        object-position: bottom 10%;
+    }
+}
+
+.spacer {
+    
+    height: clamp(25px, calc(100vh - 50vw), 300px);
+    
+}
+
+.grid3 {
+    padding: 8%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    align-items:start;
+}
+
+
+.Banner-Img {
+    width: 100%; 
+    height: 60vh; 
+    background-image: url('img/ChelseaFlowerBanner.jpg');
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    
+}
+
+
+
+
+.block-quote {
+    padding: 3% 8% 8%;
+    text-align: center;
+}
+
+/*Community Page*/
+
+.container{
+    border-top: 1px solid;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 1rem;
+    
+}
+
+.tile {
+    position: relative; /* Ensure positioning for overlay */
+    overflow: hidden;
+}
+
+.tile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+/* Dark overlay effect */
+.tile::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Dynamic Text Overlay */
+.tile .overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+}
+
+.tile .overlay-text a {
+    color: white;
+}
+
+/* Hover Effects */
+.tile:hover::after {
+    opacity: 1;
+}
+
+.tile:hover .overlay-text {
+    opacity: 1;
+}
+
+.tile:nth-child(1){
+    grid-column: span 4;
+    grid-row: span 2;
+}
+
+.tile:nth-child(2),
+.tile:nth-child(3){
+    grid-column: span 2;
+}
+
+.tile:nth-child(4){
+    grid-column: span 4;
+    grid-row: span 1;
+}
+
+.tile:nth-child(5){
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.tile:nth-child(6) {
+    grid-column: span 4;
+    grid-row: span 1;
+}
+
+.tile:nth-child(7), .tile:nth-child(8), .tile:nth-child(9) {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.tile:nth-child(10) {
+    grid-column: span 2;
+    grid-row: span 1;
+
+}
+
+
+
+@media screen and (max-width: 775px){
+    .container{
+        display: block;
+    }
+    .tile{
+        margin-bottom: 1rem;
+    }
+}
+
 /* Site Styles */
+
+
 .icon {
     width: 1.25rem;
     height: 1.25rem;
@@ -459,6 +722,7 @@ a {
     border-radius: 45px;
     margin-bottom: 40px;
 }
+
 
 
 @media (max-width: 1200px) and (min-width: 876px) {
