@@ -205,7 +205,7 @@ header.active {
     left: 30px;
     top: 35px;
     padding: 10px;
-    width: 10px;
+    width: 7px;
     cursor: pointer;
     z-index: 100;
 
@@ -343,7 +343,7 @@ header.active {
 
 .social-media-header-icons.mobile {
     position: fixed;
-    bottom: 15vh;
+    bottom: 25vh;
 }
 
 .my-work-p {
@@ -527,6 +527,11 @@ header.active {
 
 }
 
+#About-Text a {
+    color: #7393B3;
+    text-decoration: underline;
+}
+
 @media (min-width: 1650px) {
     #ChelseaAboutPic1 {
         margin-top: -75px;
@@ -672,7 +677,23 @@ header.active {
 
 }
 
+.tile-mobile-title {
+    text-align: center;
+    color: #7393B3;
+    text-decoration: underline;
+}
 
+@media(min-width:775px) {
+.tile-mobile-title {
+    display: none;
+}
+}
+
+@media(max-width:775px) {
+    overlay-text {
+        display: none;
+    }
+}
 
 @media screen and (max-width: 775px){
     .container{
