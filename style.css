@@ -124,6 +124,7 @@ header.active {
 }
 
 
+
 #icons-mobile {
     padding-left: 45px;
     display: inline-flex;
@@ -321,21 +322,26 @@ header.active {
     transition: .2s;
   }
 
+  .dropdown-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  
   .My-Work-Menu {
+    height: 0;
     overflow: hidden;
     opacity: 0;
-    transition: opacity 150ms ease-in-out, transform 250ms ease-in-out;
+    visibility: hidden;
+    transition: height 300ms ease, opacity 300ms ease;
     padding-left: 2.5rem;
-    transform: translateY(-10px);
-    
-}
-
-.My-Work-Menu.active {
+  }
+  
+  .has-dropdown.open .My-Work-Menu {
     opacity: 1;
-    transform: translateY(0px);
-    transition: opacity 150ms ease-in-out, transform 250ms ease-in-out;
-    
-}
+    visibility: visible;
+  }
+  
+  
 
 .My-Work-Menu p {
     font-size: 1.5rem;
@@ -395,8 +401,9 @@ header.active {
 }
 
 #Home-Accent-Content {
+    background: var(--clr-light-accent);
     
-    background-color: var(--clr-light-accent);
+
 }
 
 
@@ -441,6 +448,7 @@ header.active {
 
     #ChelseaGreenDressMobile {
         display: inline-block;
+       
     }
 
     #ChelseaGreenDressGrid {
@@ -449,11 +457,15 @@ header.active {
 
 }
 
+#Past-work-div {
+    background-color: var(--clr-dark-accent);
+}
+
 #Past-Work {
     text-align: center;
     border-top: 1px solid;
     padding-top: 6%;
-    background-color: var(--clr-dark-accent);
+    
 }
 
 #grid4 {
@@ -475,6 +487,11 @@ header.active {
     text-align: center;
     background-color: var(--clr-light-accent);
 }
+
+#offerings p{
+    text-align: left;
+}
+
 
 
 /* About Content */
@@ -614,6 +631,13 @@ header.active {
 }
 
 /* Dynamic Text Overlay */
+
+@media (max-width: 775px) {
+    .tile {
+      pointer-events: none; /* Fully disables hover/click events */
+    }
+  }
+
 .tile .overlay-text {
     position: absolute;
     top: 50%;

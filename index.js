@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const siteTitle = document.querySelector('.site-title');
   const myWorkMobileMenu = document.querySelector('.My-Work-Menu');
   const arrow = document.querySelector('.arrow')
+  const myWorkDropdown = document.querySelector('.has-dropdown');
 
   hamburgerMenu.addEventListener('click', function () {
       fullScreenMenu.classList.toggle('active');
@@ -52,6 +53,11 @@ document.addEventListener('DOMContentLoaded', function () {
           header.classList.remove('active'); 
           body.classList.remove('no-scroll'); 
           siteTitle.classList.remove('shift'); 
+          hamburgerMenu.classList.remove('change');
+          myWorkDropdown.classList.remove('open');
+          arrow.classList.remove('menu-arrow-down')
+          
+          myWorkMobileMenu.style.height = '0';
       }
   });
 
@@ -59,12 +65,14 @@ document.addEventListener('DOMContentLoaded', function () {
  window.addEventListener('resize', function () {
   if (window.innerWidth > 775) {
       fullScreenMenu.classList.remove('active');
-      myWorkMobileMenu.classList.remove('active');
+      myWorkMobileMenu.classList.remove('open');
       header.classList.remove('active');
       body.classList.remove('no-scroll');
       siteTitle.classList.remove('shift');  
       hamburgerMenu.classList.remove('change');
       arrow.classList.remove('menu-arrow-down');
+      myWorkMobileMenu.style.height = '0';
+      myWorkDropdown.classList.remove('open');
   }
 });
 });
@@ -72,18 +80,28 @@ document.addEventListener('DOMContentLoaded', function () {
 //Arrow Drop Down Logic
 
 document.addEventListener('DOMContentLoaded', function () {
-  const menuArrow = document.querySelector('.arrow');
-  const myWorkMenu = document.querySelector('.My-Work-Menu');
-
-  let clickableElements = document.querySelectorAll('.arrow, .my-work-p');
-
-  clickableElements.forEach(function(elem) {
+  document.querySelectorAll('.arrow, .my-work-p').forEach(elem => {
     elem.addEventListener("click", function() {
+      const dropdown = this.closest('.has-dropdown');
+      const myWorkMenu = dropdown.querySelector('.My-Work-Menu');
+      const menuArrow = dropdown.querySelector('.arrow');
+
+      dropdown.classList.toggle('open');
       menuArrow.classList.toggle('menu-arrow-down');
-      myWorkMenu.classList.toggle('active');
+
+      if (dropdown.classList.contains('open')) {
+        // Set height to actual scroll height so it expands
+        myWorkMenu.style.height = myWorkMenu.scrollHeight + 'px';
+      } else {
+        // Set height back to 0 to collapse
+        myWorkMenu.style.height = '0';
+      }
     });
   });
 });
+
+
+
 
 
 
