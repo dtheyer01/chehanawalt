@@ -18,6 +18,7 @@
     font-family: 'Williwaw';
     src: url('./fonts/Williwaw-Book.ttf') format('truetype');
     font-style: normal;
+    font-weight: 100 900; 
 }
 
 @font-face {
@@ -26,6 +27,7 @@
     font-style: normal;
     font-weight: 100 900;
 }
+
 
 /*Variables and Root*/
 
