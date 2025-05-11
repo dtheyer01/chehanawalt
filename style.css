@@ -636,9 +636,13 @@ header.active {
 
 @media (max-width: 775px) {
     .tile {
-      pointer-events: none; /* Fully disables hover/click events */
+        pointer-events: none; /* Disable pointer events for the entire tile */
     }
-  }
+
+    .tile .tile-mobile-title a {
+        pointer-events: auto; /* Re-enable pointer events for just the link */
+    }
+}
 
 .tile .overlay-text {
     position: absolute;
@@ -658,6 +662,7 @@ header.active {
     color: white;
 }
 
+@media (min-width: 776px) {
 /* Hover Effects */
 .tile:hover::after {
     opacity: 1;
@@ -666,7 +671,7 @@ header.active {
 .tile:hover .overlay-text {
     opacity: 1;
 }
-
+}
 .tile:nth-child(1){
     grid-column: span 4;
     grid-row: span 2;
